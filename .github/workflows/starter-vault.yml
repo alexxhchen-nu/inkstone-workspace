@@ -7,12 +7,16 @@ on:
       - "scripts/**"
       - ".github/workflows/starter-vault.yml"
       - "NOTICE.md"
+      - "README.md"
+      - "docs/**"
   pull_request:
     paths:
       - "vault/**"
       - "scripts/**"
       - ".github/workflows/starter-vault.yml"
       - "NOTICE.md"
+      - "README.md"
+      - "docs/**"
 
 jobs:
   check:
