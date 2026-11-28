@@ -1,0 +1,13 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+
+# Local Obsidian state if someone opens a vault or the repo root
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
+**/.obsidian/workspaces.json
+**/.obsidian/cache
+**/.obsidian/plugins/*/data.json.bak
+**/.trash/

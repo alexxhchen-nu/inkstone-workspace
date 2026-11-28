@@ -1,0 +1,11 @@
+{
+  "cssTheme": "Still",
+  "theme": "moonstone",
+  "accentColor": "",
+  "baseFontSize": 16,
+  "showViewHeader": true,
+  "nativeMenus": true,
+  "enabledCssSnippets": [
+    "inkstone-palette"
+  ]
+}
