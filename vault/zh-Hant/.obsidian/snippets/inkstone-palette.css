@@ -1,40 +1,39 @@
 /* inkstone-palette.css
  *
- * 砚石起始库配色。全部色值取自中国传统色库 zhongguose.com
+ * 砚石起始库配色（仅浅色）。全部色值取自中国传统色库 zhongguose.com
  * 源文件：https://zhongguose.com/colors.json（2026-11-27 读取，共 526 色）
  * 官网：https://zhongguose.com/
  *
  * 主色：火砖红 #cd6227（拼音 huozhuanhong，RGB 205,98,39）。
  * 官网色库没有名为「砖红」的条目；火砖红是其中对应的砖红色。
  *
+ * 本库只使用浅色：appearance.json 将基础主题固定为 moonstone（浅色）。
+ *
  * 对比度说明（WCAG 2.2 AA：正文 4.5:1，大号字/控件 3:1）：
- * - 浅色正文 青灰 on 汉白玉 = 11.64:1 AAA；辅色正文 石板灰 = 7.52:1 AAA。
+ * - 正文 青灰 on 汉白玉 = 11.64:1 AAA；辅色正文 石板灰 = 7.52:1 AAA。
  * - 火砖红 on 汉白玉 = 3.57:1，只够大号字和控件，不够小字正文。
- *   因此浅色链接改用 蟹蝥红 #b14b28（4.90:1 AA），实心按钮用 赭石 #862617
+ *   因此链接改用 蟹蝥红 #b14b28（4.90:1 AA），实心按钮用 赭石 #862617
  *   （雪白 on 赭石 = 9.03:1 AAA）。
- * - 深色正文 汉白玉 on 燕颔蓝 = 16.20:1 AAA；辅色 中灰 = 6.55:1 AA。
- * - 火砖红 on 燕颔蓝 = 4.54:1 AA，深色模式可以把火砖红直接用作链接色。
  */
 
-/* ── 浅色 ── */
-body.theme-light {
-  /* 火砖红 #cd6227 · 主色 / 品牌强调（控件、装饰；浅色小字链接不用它） */
+body {
+  /* 火砖红 #cd6227 · 主色 / 品牌强调（控件、装饰；小字链接不用它） */
   --inkstone-accent: #cd6227;
-  /* 赭石 #862617 · 浅色悬停、实心按钮底 */
+  /* 赭石 #862617 · 悬停、实心按钮底 */
   --inkstone-accent-hover: #862617;
-  /* 汉白玉 #f8f4ed · 浅色背景 */
+  /* 汉白玉 #f8f4ed · 背景 */
   --inkstone-bg: #f8f4ed;
-  /* 珍珠灰 #e4dfd7 · 浅色次级背景 */
+  /* 珍珠灰 #e4dfd7 · 次级背景 */
   --inkstone-bg-secondary: #e4dfd7;
-  /* 青灰 #2b333e · 浅色正文 */
+  /* 青灰 #2b333e · 正文 */
   --inkstone-text: #2b333e;
-  /* 石板灰 #624941 · 浅色次级文字 */
+  /* 石板灰 #624941 · 次级文字 */
   --inkstone-muted: #624941;
-  /* 雁灰 #80766e · 浅色边框（对汉白玉 4.05:1，满足控件 3:1） */
+  /* 雁灰 #80766e · 边框（对汉白玉 4.05:1，满足控件 3:1） */
   --inkstone-border: #80766e;
-  /* 蟹蝥红 #b14b28 · 浅色链接（正文 4.90:1 AA） */
+  /* 蟹蝥红 #b14b28 · 链接（正文 4.90:1 AA） */
   --inkstone-link: #b14b28;
-  /* 落英淡粉 #f9e8d0 · 浅色高亮 / callout */
+  /* 落英淡粉 #f9e8d0 · 高亮 / callout */
   --inkstone-highlight: #f9e8d0;
 
   --background-primary: var(--inkstone-bg);
@@ -65,65 +64,9 @@ body.theme-light {
   --callout-default: 205, 98, 39; /* 火砖红 RGB，作 callout 条 */
 }
 
-/* ── 深色 ── */
-body.theme-dark {
-  /* 火砖红 #cd6227 · 主色、深色链接（对燕颔蓝 4.54:1 AA） */
-  --inkstone-accent: #cd6227;
-  /* 余烬红 #cf7543 · 深色悬停 */
-  --inkstone-accent-hover: #cf7543;
-  /* 燕颔蓝 #131824 · 深色背景 */
-  --inkstone-bg: #131824;
-  /* 青灰 #2b333e · 深色次级背景 */
-  --inkstone-bg-secondary: #2b333e;
-  /* 汉白玉 #f8f4ed · 深色正文 */
-  --inkstone-text: #f8f4ed;
-  /* 中灰 #a49c93 · 深色次级文字（6.55:1 AA） */
-  --inkstone-muted: #a49c93;
-  /* 雁灰 #80766e · 深色边框（对燕颔蓝 4.00:1，满足控件 3:1） */
-  --inkstone-border: #80766e;
-  /* 火砖红 #cd6227 · 深色链接 */
-  --inkstone-link: #cd6227;
-  /* 古鼎灰 #36292f · 深色高亮 / callout */
-  --inkstone-highlight: #36292f;
-
-  --background-primary: var(--inkstone-bg);
-  --background-primary-alt: var(--inkstone-bg-secondary);
-  --background-secondary: var(--inkstone-bg-secondary);
-  --background-secondary-alt: var(--inkstone-bg);
-  --background-modifier-border: var(--inkstone-border);
-  --background-modifier-hover: var(--inkstone-highlight);
-  --background-modifier-form-field: var(--inkstone-bg-secondary);
-  --titlebar-background: var(--inkstone-bg);
-  --titlebar-background-focused: var(--inkstone-bg);
-  --text-normal: var(--inkstone-text);
-  --text-muted: var(--inkstone-muted);
-  --text-faint: var(--inkstone-muted);
-  --text-accent: var(--inkstone-link);
-  --text-accent-hover: var(--inkstone-accent-hover);
-  --text-highlight-bg: var(--inkstone-highlight);
-  /* 实心按钮仍用赭石，保证浅色字对比度为 AAA */
-  --interactive-accent: #862617; /* 赭石 #862617 */
-  --interactive-accent-hover: var(--inkstone-accent);
-  --interactive-normal: var(--inkstone-bg-secondary);
-  --interactive-hover: var(--inkstone-highlight);
-  --color-accent: var(--inkstone-accent);
-  --color-accent-1: var(--inkstone-accent);
-  --color-accent-2: var(--inkstone-accent-hover);
-  --checkbox-color: var(--inkstone-accent);
-  --tag-background: var(--inkstone-highlight);
-  --tag-color: var(--inkstone-text);
-  --callout-default: 205, 98, 39; /* 火砖红 RGB */
-}
-
-/* 选中文本、高亮标记走落英淡粉 / 古鼎灰 */
-.theme-light .cm-s-obsidian span.cm-highlight,
-.theme-light .markdown-preview-view mark {
-  background-color: var(--inkstone-highlight);
-  color: var(--inkstone-text);
-}
-
-.theme-dark .cm-s-obsidian span.cm-highlight,
-.theme-dark .markdown-preview-view mark {
+/* 选中文本、高亮标记走落英淡粉 */
+.cm-s-obsidian span.cm-highlight,
+.markdown-preview-view mark {
   background-color: var(--inkstone-highlight);
   color: var(--inkstone-text);
 }

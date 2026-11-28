@@ -47,25 +47,21 @@ tags:
 
 ## 配色
 
-本库启用了 CSS 片段 `.obsidian/snippets/inkstone-palette.css`（设置 → 外观 → CSS 片段）。主色是中国传统色 **火砖红** `#cd6227`，色值来自 [zhongguose.com/colors.json](https://zhongguose.com/colors.json)（2026-11-27 读取）。色库里没有名为「砖红」的条目，火砖红是对应的砖红色。完整色表和对比度见仓库根目录 [README](https://github.com/alexxhchen-nu/inkstone-workspace#配色)，预览图在 `docs/palette-preview.png`。
+本库启用了 CSS 片段 `.obsidian/snippets/inkstone-palette.css`（设置 → 外观 → CSS 片段），基础主题固定为 Obsidian 浅色（`moonstone`），不用深色方案。主色是中国传统色 **火砖红** `#cd6227`，色值来自 [zhongguose.com/colors.json](https://zhongguose.com/colors.json)（2026-11-27 读取）。色库里没有名为「砖红」的条目，火砖红是对应的砖红色。完整色表和对比度见仓库根目录 [README](https://github.com/alexxhchen-nu/inkstone-workspace#配色)，预览图在 `docs/palette-preview.png`。
 
-| 色名 | Hex | 浅色角色 | 深色角色 |
-| --- | --- | --- | --- |
-| 火砖红 | `#cd6227` | 主色 / 强调 | 主色 / 链接 |
-| 赭石 | `#862617` | 悬停、按钮底 | 实心按钮底 |
-| 汉白玉 | `#f8f4ed` | 背景 | 正文 |
-| 珍珠灰 | `#e4dfd7` | 次级背景 | — |
-| 青灰 | `#2b333e` | 正文 | 次级背景 |
-| 石板灰 | `#624941` | 次级文字 | — |
-| 雁灰 | `#80766e` | 边框 | 边框 |
-| 蟹蝥红 | `#b14b28` | 链接 | — |
-| 落英淡粉 | `#f9e8d0` | 高亮 / callout | — |
-| 燕颔蓝 | `#131824` | — | 背景 |
-| 余烬红 | `#cf7543` | — | 悬停 |
-| 中灰 | `#a49c93` | — | 次级文字 |
-| 古鼎灰 | `#36292f` | — | 高亮 / callout |
+| 色名 | Hex | 角色 |
+| --- | --- | --- |
+| 火砖红 | `#cd6227` | 主色 / 强调 |
+| 赭石 | `#862617` | 悬停、按钮底 |
+| 汉白玉 | `#f8f4ed` | 背景 |
+| 珍珠灰 | `#e4dfd7` | 次级背景 |
+| 青灰 | `#2b333e` | 正文 |
+| 石板灰 | `#624941` | 次级文字 |
+| 雁灰 | `#80766e` | 边框 |
+| 蟹蝥红 | `#b14b28` | 链接 |
+| 落英淡粉 | `#f9e8d0` | 高亮 / callout |
 
-浅色正文（青灰在汉白玉上）对比度为 11.64:1，达到 WCAG AA / AAA。火砖红在浅色背景上只有 3.57:1，所以浅色小字链接改用蟹蝥红（4.90:1 AA）。深色正文（汉白玉在燕颔蓝上）为 16.18:1 AAA；火砖红在深色背景上是 4.54:1 AA，可以直接当链接色。
+正文（青灰在汉白玉上）对比度为 11.64:1，达到 WCAG AA / AAA。火砖红在汉白玉上只有 3.57:1，所以小字链接改用蟹蝥红（4.90:1 AA）。
 
 ## 建议的工作流
 

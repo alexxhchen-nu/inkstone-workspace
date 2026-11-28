@@ -327,12 +327,18 @@ def check_vault(vault: Path, failures: Failures) -> set[str]:
     appearance = json.loads((obsidian / "appearance.json").read_text(encoding="utf-8"))
     if appearance.get("cssTheme") != "Still":
         failures.add(f"{vault.name}: cssTheme should be Still")
+    if appearance.get("theme") != "moonstone":
+        failures.add(f"{vault.name}: appearance theme should be moonstone (light only)")
     snippets = appearance.get("enabledCssSnippets") or []
     if "inkstone-palette" not in snippets:
         failures.add(f"{vault.name}: inkstone-palette snippet not enabled")
     snippet = obsidian / "snippets" / "inkstone-palette.css"
-    if snippet.is_file() and "#cd6227" not in snippet.read_text(encoding="utf-8"):
-        failures.add(f"{vault.name}: palette snippet missing 火砖红 #cd6227")
+    if snippet.is_file():
+        css = snippet.read_text(encoding="utf-8")
+        if "#cd6227" not in css:
+            failures.add(f"{vault.name}: palette snippet missing 火砖红 #cd6227")
+        if "theme-dark" in css or "#131824" in css:
+            failures.add(f"{vault.name}: palette snippet still contains a dark theme")
     still = obsidian / "themes" / "Still"
     if not (still / "theme.css").is_file() or not (still / "manifest.json").is_file():
         failures.add(f"{vault.name}: Still theme files missing")
@@ -472,22 +478,18 @@ def main() -> int:
                 failures.add(f"config parity mismatch: {rel}")
 
 
-    # Body-text contrast (WCAG AA 4.5:1). 火砖红 on light is intentionally
-    # not in this list; light links use 蟹蝥红 instead.
+    # Body-text contrast (WCAG AA 4.5:1). Light theme only.
+    # 火砖红 on 汉白玉 is intentionally not in this list; links use 蟹蝥红.
     body_pairs = [
-        ("light body", "#2b333e", "#f8f4ed", 4.5),
-        ("light muted", "#624941", "#f8f4ed", 4.5),
-        ("light muted on secondary", "#624941", "#e4dfd7", 4.5),
-        ("light link", "#b14b28", "#f8f4ed", 4.5),
-        ("dark body", "#f8f4ed", "#131824", 4.5),
-        ("dark muted", "#a49c93", "#131824", 4.5),
-        ("dark link / 火砖红", "#cd6227", "#131824", 4.5),
-        ("light button label", "#fffef9", "#862617", 4.5),
+        ("body", "#2b333e", "#f8f4ed", 4.5),
+        ("muted", "#624941", "#f8f4ed", 4.5),
+        ("muted on secondary", "#624941", "#e4dfd7", 4.5),
+        ("link", "#b14b28", "#f8f4ed", 4.5),
+        ("button label", "#fffef9", "#862617", 4.5),
     ]
     ui_pairs = [
-        ("light accent UI", "#cd6227", "#f8f4ed", 3.0),
-        ("light border UI", "#80766e", "#f8f4ed", 3.0),
-        ("dark border UI", "#80766e", "#131824", 3.0),
+        ("accent UI", "#cd6227", "#f8f4ed", 3.0),
+        ("border UI", "#80766e", "#f8f4ed", 3.0),
     ]
     for label, a, b, min_ratio in body_pairs + ui_pairs:
         ratio = contrast_ratio(a, b)
